@@ -1,0 +1,14 @@
+﻿Build started 04-02-2016 12:46:57.
+     1>Project "E:\Syracuse(Spring2016)\OOD\Project1\Pr1StarterCode\SemiExp\SemiExp.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt ..\Tokenizer\Tokenizer.cpp
+         Tokenizer.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Syracuse(Spring2016)\OOD\Project1\Pr1StarterCode\x64\Debug\SemiExp.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"E:\Syracuse(Spring2016)\OOD\Project1\Pr1StarterCode\x64\Debug\SemiExp.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Syracuse(Spring2016)\OOD\Project1\Pr1StarterCode\x64\Debug\SemiExp.lib" /MACHINE:X64 x64\Debug\Tokenizer.obj
+         x64\Debug\SemiExp.obj
+         SemiExp.vcxproj -> E:\Syracuse(Spring2016)\OOD\Project1\Pr1StarterCode\x64\Debug\SemiExp.exe
+     1>Done Building Project "E:\Syracuse(Spring2016)\OOD\Project1\Pr1StarterCode\SemiExp\SemiExp.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.11

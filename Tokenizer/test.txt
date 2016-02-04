@@ -1,0 +1,12 @@
+ConsumeState* ConsumeState::nextState()
+{
+  //This is a CPP comment
+  if (!(_pIn->good()))
+    return nullptr;
+  /* This is a C *comment */
+  int chNext = _pIn->peek();
+  if (std::isspace(currChar) && currChar != '\n')
+  {
+    testLog("state: eatWhitespace") /*C Comment */ ;
+    return _pEatWhitespace;
+  }
