@@ -1,14 +1,15 @@
 #ifndef ITOKCOLLECTION_H
 #define ITOKCOLLECTION_H
-/////////////////////////////////////////////////////////////////////
-//  ITokCollection.h - package for the ITokCollection interface    //
-//  ver 1.1                                                        //
-//  Language:      Visual C++ 2008, SP1                            //
-//  Platform:      Dell Precision T7400, Vista Ultimate SP1        //
-//  Application:   Prototype for CSE687 Pr1, Sp09                  //
-//  Author:        Jim Fawcett, CST 4-187, Syracuse University     //
-//                 (315) 443-3948, jfawcett@twcny.rr.com           //
-/////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+//  ITokCollection.h - package for the ITokCollection interface      //
+//  ver 1.1                                                          //
+//  Language:			Visual C++ 2008, SP1                         //
+//  Platform:			Dell Precision T7400, Vista Ultimate SP1     //
+//  Application:		Prototype for CSE687 Pr1, Sp09			     //
+//  Author:				Alok Arya (alarya@syr.edu)                   //
+//  Original Author:    Jim Fawcett, CST 4-187, Syracuse University  //
+//                 (315) 443-3948, jfawcett@twcny.rr.com             //
+///////////////////////////////////////////////////////////////////////
 /*
 Module Purpose:
 ===============
@@ -26,7 +27,7 @@ ver 1.0 : 17 Jan 09
 - first release
 */
 
-#include <stdio.h>
+#include <string>
 
 struct ITokCollection
 {

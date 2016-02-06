@@ -46,19 +46,31 @@
 
 #include <vector>
 #include "../Tokenizer/Tokenizer.h"
+#include "itokcollection.h"
+#include <string>
 
 namespace Scanner
 {
   using Token = std::string;
 
-  class SemiExp
+  class SemiExp : public ITokCollection
   {
   public:
     SemiExp(Toker* pToker);
-    bool get();
-    Token operator[](size_t n);
+	~SemiExp();
+    bool get(bool clear=true);
+    //Token operator[](size_t n);
+	std::string& operator[](int n);
     size_t length();
-    void show();
+	size_t find(const std::string& tok);
+	void push_back(const std::string& tok);
+	bool remove(const std::string& tok);
+	bool remove(size_t i);
+	bool merge(const std::string& firstTok, const std::string& secondTok);
+	void toLower();
+	void trimFront();
+	void clear();
+	std::string show(bool showNewLines = false);
   private:
     std::vector<Token> _tokens;
     Toker* _pToker;

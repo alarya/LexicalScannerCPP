@@ -1,13 +1,14 @@
 #ifndef TOKENIZER_H
 #define TOKENIZER_H
-///////////////////////////////////////////////////////////////////////
-// Tokenizer.h - read words from a std::stream                       //
-// ver 3.2                                                           //
-// Language:    C++, Visual Studio 2015                              //
-// Application: Parser component, CSE687 - Object Oriented Design    //
-// Author:      Jim Fawcett, Syracuse University, CST 4-187          //
-//              jfawcett@twcny.rr.com                                //
-///////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Tokenizer.h - read words from a std::stream							 //
+// ver 3.2                                                               //
+// Language:		C++, Visual Studio 2015                              //
+// Application:		Parser component, CSE687 - Object Oriented Design    //
+// Author:			Alok Arya (alarya@syr.edu)                           //
+// Original Author:	Jim Fawcett, Syracuse University, CST 4-187          //
+//					jfawcett@twcny.rr.com                                //
+///////////////////////////////////////////////////////////////////////////
 /*
  * Package Operations:
  * -------------------

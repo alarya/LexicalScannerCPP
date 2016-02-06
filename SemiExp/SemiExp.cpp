@@ -1,11 +1,12 @@
-///////////////////////////////////////////////////////////////////////
-// SemiExpression.cpp - collect tokens for analysis                  //
-// ver 3.1                                                           //
-// Language:    C++, Visual Studio 2015                              //
-// Application: Parser component, CSE687 - Object Oriented Design    //
-// Author:      Jim Fawcett, Syracuse University, CST 4-187          //
-//              jfawcett@twcny.rr.com                                //
-///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+// SemiExpression.cpp - collect tokens for analysis                       //
+// ver 3.1                                                                //
+// Language:         C++, Visual Studio 2015                              //
+// Application:      Parser component, CSE687 - Object Oriented Design    //
+// Author:           Alok Arya (alarya@syr.edu)							  //
+// Original Author:  Jim Fawcett, Syracuse University, CST 4-187          //
+//                   jfawcett@twcny.rr.com                                //
+////////////////////////////////////////////////////////////////////////////
 
 #include <fstream>
 #include <iostream>
@@ -17,9 +18,21 @@
 
 using namespace Scanner;
 
+//-------------------class SemiExp Implementation -------------------------
+
+//using Token = std::string;
+
+//----Constructor -----
 SemiExp::SemiExp(Toker* pToker) : _pToker(pToker) {}
 
-bool SemiExp::get()
+//----Destructor-------
+SemiExp::~SemiExp()
+{
+
+}
+
+//--- collect a semiExpression-----
+bool SemiExp::get(bool clear)
 {
   _tokens.clear();
   while (true)
@@ -35,26 +48,95 @@ bool SemiExp::get()
   return false;
 }
 
-Token SemiExp::operator[](size_t n)
-{
-  if (n < 0 || n >= _tokens.size())
-    throw(std::invalid_argument("index out of range"));
-  return _tokens[n];
-}
-
+//---no of tokens in the Semi Exp-----
 size_t SemiExp::length()
 {
-  return _tokens.size();
+	return _tokens.size();
 }
 
-void SemiExp::show()
+//----index operator -----------------
+//Token SemiExp::operator[](size_t n)
+//{
+//	if (n < 0 || n >= _tokens.size())
+//		throw(std::invalid_argument("index out of range"));
+//	return _tokens[n];
+//}
+std::string& SemiExp::operator[](int n)
 {
-  std::cout << "\n  ";
-  for (auto token : _tokens)
-    if(token != "\n")
-      std::cout << token << " ";
-  std::cout << "\n";
+	if (n < 0 || n >= _tokens.size())
+		throw(std::invalid_argument("index out of range"));
+	return _tokens[n];
 }
+
+
+//----is token present in the Semi Expression ----------
+size_t SemiExp::find(const std::string& tok)
+{
+
+	return 10;
+}
+
+//----- ??----------------------------------------------
+void SemiExp::push_back(const std::string& tok)
+{
+	_tokens.push_back(tok);
+}
+
+//-----merge from firstTok to secondTok-----------------
+bool SemiExp::merge(const std::string& firstTok, const std::string& secondTok)
+{
+
+	return false;
+}
+
+//-----remove tok if found in semi Expression ----------
+bool SemiExp::remove(const std::string& tok)
+{
+	return false;
+}
+
+//-----remove tok at specified index--------------------
+bool SemiExp::remove(size_t i)
+{
+	return false;
+}
+
+//-----merge tokens lowercase -------------------------
+void SemiExp::toLower()
+{
+	return;
+}
+
+//-----remove leading newlines -----------------------
+void SemiExp::trimFront()
+{
+	return;
+}
+
+//-----clear all tokens------------------------------
+void SemiExp::clear()
+{
+	_tokens.clear();
+}
+
+//-----collect semi expressions as space sperated strings --------
+std::string SemiExp::show(bool showNewLines)
+{
+
+	return "";
+}
+
+
+//void SemiExp::show()
+//{
+//  std::cout << "\n  ";
+//  for (auto token : _tokens)
+//    if(token != "\n")
+//      std::cout << token << " ";
+//  std::cout << "\n";
+//}
+
+//-------------------End of class SemiExp Implementation -------------------------
 
 int main()
 {
