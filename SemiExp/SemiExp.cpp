@@ -46,6 +46,8 @@ bool SemiExp::get(bool clear)
   std::string token;
   do
   {
+	  trimFront();
+
 	  if (isPreProcessorDir())
 		  return true;
 
@@ -123,7 +125,11 @@ bool SemiExp::remove(const std::string& tok)
 //-----remove tok at specified index--------------------
 bool SemiExp::remove(size_t i)
 {
-	return false;
+	if (i<0 || _tokens.size() <= i)
+		return false;
+	std::vector<std::string>::iterator it = _tokens.begin();
+	_tokens.erase(it + i);
+	return true;
 }
 
 //-----merge tokens lowercase -------------------------
@@ -135,7 +141,8 @@ void SemiExp::toLower()
 //-----remove leading newlines -----------------------
 void SemiExp::trimFront()
 {
-	return;
+	while (_tokens.size() > 0 && (_tokens[0] == "\n" || _tokens[0] == ""))
+		remove(0);
 }
 
 //-----clear all tokens------------------------------
