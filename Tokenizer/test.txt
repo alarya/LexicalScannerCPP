@@ -1,3 +1,13 @@
+
+
+class SemiExp : public ITokCollection
+  {
+    public:
+       SemiExp(Toker* pToker);
+      ~SemiExp();
+       bool get(bool clear=true);
+  }
+
 ConsumeState* ConsumeState::nextState()
 {
   //This is a CPP comment
@@ -10,3 +20,4 @@ ConsumeState* ConsumeState::nextState()
     testLog("state: eatWhitespace") /*C Comment */ ;
     return _pEatWhitespace;
   }
+}

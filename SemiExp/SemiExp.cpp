@@ -34,18 +34,43 @@ SemiExp::~SemiExp()
 //--- collect a semiExpression-----
 bool SemiExp::get(bool clear)
 {
-  _tokens.clear();
-  while (true)
+	_tokens.clear();
+
+	//if (!scopeChar.empty())
+	//{
+	//	_tokens.push_back(scopeChar);
+	//	scopeChar.clear();
+	//	return true;
+	//}
+  
+  std::string token;
+  do
   {
-	  std::string token = _pToker->getTok();
-    if (token == "")
-      break;
+	  if (isPreProcessorDir())
+		  return true;
+
+	  if (isScopeChar())
+		  return true;	  
+
+	  if (isCppComment())
+		  return true;
+
+	  if (isCComment())
+		  return true;
+
+	  if (isAccessModifier())
+		  return true;
+
+	  token = _pToker->getTok();
+  
+	  if (token == "")
+		return false;
+
     _tokens.push_back(token);
     
-    if (token == "{")
-      return true;
-  }
-  return false;
+  } while (!isTerminatingTok(token));
+
+  return true;
 }
 
 //---no of tokens in the Semi Exp-----
@@ -122,33 +147,104 @@ void SemiExp::clear()
 //-----collect semi expressions as space sperated strings --------
 std::string SemiExp::show(bool showNewLines)
 {
-
+	std::cout << "\n  ";
+	for (auto token : _tokens)
+	    if(token != "\n")
+	      std::cout << token << " ";
+    std::cout << "\n";
+	
 	return "";
 }
 
+bool SemiExp::isTerminatingTok(const std::string& token)
+{
+	if (token == ";" || token =="{" || token == "}")
+		return true;
+	
+	return false;
+}
 
-//void SemiExp::show()
-//{
-//  std::cout << "\n  ";
-//  for (auto token : _tokens)
-//    if(token != "\n")
-//      std::cout << token << " ";
-//  std::cout << "\n";
-//}
+bool SemiExp::isScopeChar()
+{
+	size_t noOfTokens = _tokens.size();
+
+	if (noOfTokens == 1)
+		if (_tokens[0] == "{" || _tokens[0] == "}")
+			return true;
+
+	return false;
+}
+bool SemiExp::isAccessModifier()
+{
+	size_t noOfTokens = _tokens.size();
+
+	if (noOfTokens == 2)
+	{
+			if ((_tokens[0] == "public" || _tokens[0] == "protected" || _tokens[0] == "private") && _tokens[1] == ":")
+	     		return true;
+	}
+
+	return false;
+}
+
+bool SemiExp::isPreProcessorDir()
+{
+	size_t noOfTokens = _tokens.size();
+
+	if (noOfTokens >= 1)
+	{
+		if (_tokens[0] == "#" && _tokens[noOfTokens - 1] == "\n")
+			return true;
+	}
+
+	return false;
+}
+
+bool SemiExp::isCppComment()
+{
+	size_t noOfTokens = _tokens.size();
+
+	if (noOfTokens == 1)
+	{
+		std::string token = _tokens[0];
+		if (token.size() >= 2)
+			if (token[0] == '/' && token[1] == '/')
+				return true;
+	}
+
+	return false;
+}
+bool SemiExp::isCComment()
+{
+	size_t noOfTokens = _tokens.size();
+
+	if (noOfTokens == 1)
+	{
+		std::string token = _tokens[0];
+		if (token.size() >= 2)
+			if (token[0] == '/' && token[1] == '*')
+				return true;
+	}
+
+	return false;
+}
 
 //-------------------End of class SemiExp Implementation -------------------------
 
 int main()
 {
-  Toker toker;//abc
-  std::string fileSpec = "../Tokenizer/Tokenizer.cpp";
- 
+  Toker toker;
+  //std::string fileSpec = "../Tokenizer/Tokenizer.cpp";
+  std::string fileSpec = "../../Tokenizer/test.txt";
+
   std::fstream in(fileSpec);
   if (!in.good())
   {
     std::cout << "\n  can't open file " << fileSpec << "\n\n";
     return 1;
   }
+
+  std::cout << "\n File: " << fileSpec << "\n\n";
   toker.attach(&in);
 
   SemiExp semi(&toker);

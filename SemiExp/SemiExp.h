@@ -74,6 +74,13 @@ namespace Scanner
   private:
     std::vector<Token> _tokens;
     Toker* _pToker;
+	std::string scopeChar;
+	bool isTerminatingTok(const std::string& token);
+	bool isAccessModifier();
+	bool isPreProcessorDir();
+	bool isCppComment();
+	bool isCComment();
+	bool isScopeChar();
   };
 }
 #endif

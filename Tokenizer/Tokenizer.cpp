@@ -138,7 +138,8 @@ ConsumeState* ConsumeState::nextState()
 	  currChar == '('  ||
 	  currChar == ')'  ||
 	  currChar == ':'  ||
-	  currChar == '!'
+	  currChar == '!'  ||
+	  currChar == '#'
 	 )	  
   {
 	  testLog("state: eatSpecialCharPair");
