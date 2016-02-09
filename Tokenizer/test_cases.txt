@@ -1,0 +1,48 @@
+//----Test cases for preprocessor directives & access modifiers---//
+
+# include <string>
+# include <fstream>
+
+Class SemiExp
+{
+    public:
+	SemiExp(Toker* pToker);
+	~SemiExp();
+    protected:
+	std::vector<Token> _tokens;
+}
+
+
+//--------------Test cases for C and CPP comments ----------------//
+
+//This is a CPP comment-----//
+
+/*This is a C Comment ------*/
+
+
+//---------Test cases for quoted strings and chars ----------------//
+
+std::cout << "This is a quoted string" << "\n" ;
+
+std::cout << "\"This is a quoted string with escape sequence"\" ;
+
+//---------Test cases for Loops and if condition -------------------//
+
+if (std::isspace(currChar) && currChar != '\n')
+  {
+    testLog("state: eatWhitespace") /*C Comment */ ;
+    return _pEatWhitespace;
+  }
+
+for(int i=0 ; i < 10 ; i++)
+  {
+	std::cout << "hello" ;   
+  }
+
+if (!(_pIn->good()))
+    return nullptr;
+
+do {
+      std::cout << "testing Do While" ;
+   }while(true);
+

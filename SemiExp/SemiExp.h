@@ -59,7 +59,6 @@ namespace Scanner
     SemiExp(Toker* pToker);
 	~SemiExp();
     bool get(bool clear=true);
-    //Token operator[](size_t n);
 	std::string& operator[](int n);
     size_t length();
 	size_t find(const std::string& tok);
@@ -78,8 +77,7 @@ namespace Scanner
 	bool isAccessModifier();
 	bool isPreProcessorDir();
 	bool isCppComment();
-	bool isCComment();
-	
+	bool isCComment();	
   };
 }
 #endif
