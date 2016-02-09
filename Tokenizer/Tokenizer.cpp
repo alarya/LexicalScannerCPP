@@ -91,6 +91,14 @@ ConsumeState* ConsumeState::nextState()
     return nullptr;
 
   int chNext = _pIn->peek();
+
+  if (chNext == EOF)
+  {
+	  _pIn->clear();
+	  // if peek() reads end of file character, EOF, then eofbit is set and
+	  // _pIn->good() will return false.  clear() restores state to good
+  }
+
   if (std::isspace(currChar) && currChar != '\n')
   {
     testLog("state: eatWhitespace");

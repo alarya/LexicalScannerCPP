@@ -1,7 +1,6 @@
 
 #include <string>
-class SemiExp : public ITokCollection
-  {
+class SemiExp : public ITokCollection{
     public:
        SemiExp(Toker* pToker);
       ~SemiExp();
@@ -19,5 +18,10 @@ ConsumeState* ConsumeState::nextState()
   {
     testLog("state: eatWhitespace") /*C Comment */ ;
     return _pEatWhitespace;
+  }
+
+  for(int i=0 ; i < 10 ; i++)
+  {
+	std::cout << "hello" ;   
   }
 }

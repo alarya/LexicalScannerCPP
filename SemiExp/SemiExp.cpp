@@ -22,10 +22,10 @@ using namespace Scanner;
 
 //using Token = std::string;
 
-//----Constructor -----
+//----Constructor -----------------
 SemiExp::SemiExp(Toker* pToker) : _pToker(pToker) {}
 
-//----Destructor-------
+//----Destructor-------------------
 SemiExp::~SemiExp()
 {
 
@@ -35,13 +35,6 @@ SemiExp::~SemiExp()
 bool SemiExp::get(bool clear)
 {
 	_tokens.clear();
-
-	//if (!scopeChar.empty())
-	//{
-	//	_tokens.push_back(scopeChar);
-	//	scopeChar.clear();
-	//	return true;
-	//}
   
   std::string token;
   do
@@ -50,9 +43,6 @@ bool SemiExp::get(bool clear)
 
 	  if (isPreProcessorDir())
 		  return true;
-
-	  if (isScopeChar())
-		  return true;	  
 
 	  if (isCppComment())
 		  return true;
@@ -68,9 +58,14 @@ bool SemiExp::get(bool clear)
 	  if (token == "")
 		return false;
 
-    _tokens.push_back(token);
-    
+	  //if (token != "\n" || )
+	  //{
+		   _tokens.push_back(token);
+	  //}
+ 
   } while (!isTerminatingTok(token));
+
+  trimFront();
 
   return true;
 }
@@ -82,12 +77,6 @@ size_t SemiExp::length()
 }
 
 //----index operator -----------------
-//Token SemiExp::operator[](size_t n)
-//{
-//	if (n < 0 || n >= _tokens.size())
-//		throw(std::invalid_argument("index out of range"));
-//	return _tokens[n];
-//}
 std::string& SemiExp::operator[](int n)
 {
 	if (n < 0 || n >= _tokens.size())
@@ -156,31 +145,36 @@ std::string SemiExp::show(bool showNewLines)
 {
 	std::cout << "\n  ";
 	for (auto token : _tokens)
-	    if(token != "\n")
+	    if(token != "\n" || showNewLines)
 	      std::cout << token << " ";
     std::cout << "\n";
 	
 	return "";
 }
 
+//<--------------------HELPER FUNCTIONS------------------------------------>
+
+//----is the token returned by toker a semiexpression boundary ----
 bool SemiExp::isTerminatingTok(const std::string& token)
 {
-	if (token == ";" || token =="{" || token == "}")
-		return true;
 	
+	if (token == "{" || token == "}")
+		return true;
+
+	//exception for semiexp with for-loop
+	if (_tokens.size() >= 1)
+	{
+		if (token == ";" && _tokens[0] == "for")
+			return false;
+	}
+
+	if (token == ";" )
+		return true;
+
 	return false;
 }
 
-bool SemiExp::isScopeChar()
-{
-	size_t noOfTokens = _tokens.size();
-
-	if (noOfTokens == 1)
-		if (_tokens[0] == "{" || _tokens[0] == "}")
-			return true;
-
-	return false;
-}
+//-----do the tokens form an access modifier-------------//
 bool SemiExp::isAccessModifier()
 {
 	size_t noOfTokens = _tokens.size();
@@ -194,6 +188,7 @@ bool SemiExp::isAccessModifier()
 	return false;
 }
 
+//-----do the tokens form a preprocessor directive---------//
 bool SemiExp::isPreProcessorDir()
 {
 	size_t noOfTokens = _tokens.size();
@@ -207,6 +202,7 @@ bool SemiExp::isPreProcessorDir()
 	return false;
 }
 
+//-----does the token represent a C++ style comment--------//
 bool SemiExp::isCppComment()
 {
 	size_t noOfTokens = _tokens.size();
@@ -221,6 +217,8 @@ bool SemiExp::isCppComment()
 
 	return false;
 }
+
+//----does the token represent a C Comment-----------------//
 bool SemiExp::isCComment()
 {
 	size_t noOfTokens = _tokens.size();
@@ -236,14 +234,15 @@ bool SemiExp::isCComment()
 	return false;
 }
 
-//-------------------End of class SemiExp Implementation -------------------------
+//-------------------END OF CLASS SEMIEXP IMPLEMENTATION -------------------------//
 
 int main()
 {
   Toker toker;
   //std::string fileSpec = "../Tokenizer/Tokenizer.cpp";
   std::string fileSpec = "../../Tokenizer/test.txt";
-
+  //std::string fileSpec = "../../SemiExp/SemiExp.h";
+  
   std::fstream in(fileSpec);
   if (!in.good())
   {
@@ -258,7 +257,7 @@ int main()
   while(semi.get())
   {
     std::cout << "\n  -- semiExpression --";
-    semi.show();
+    semi.show(true);
   }
   /*
      May have collected tokens, but reached end of stream
