@@ -20,6 +20,22 @@
 * This is a new version for students in CSE687 - OOD, Spring 2016 to use
 * for Project #1.
 *
+* public Interface
+* ----------------
+* SemiExp s(pToker);		   //Creates a new instance of SemiExp
+* s.get();                     //Gets the next available semi-expression
+* s[n];                        //returns the nth token in semi-expression if available
+* s.length();				   //returns the number of tokens in the current sem-exp
+* s.find("token");             //return the index of the "token" in semi-exp
+* s.push_back("token");        //push token into the end of current semi-exp 
+* s.remove("token");		   //remove "token" from the current semi-exp 
+* s.remove(i);				   //remove a token from i'th index of current semi-exp
+* s.merge("token1", "token2"); //currently not used
+* s.toLower();                 //turns all the alphabets in the semi-exp to lower case
+* s.trimFront();               //remove any new line token from the front of the semi-exp	
+* s.clear();				   //clear all tokens from the current semi-exp
+* s.show();                    //show the current semi-exp
+*
 * Build Process:
 * --------------
 * Required Files: 

@@ -1,5 +1,16 @@
-﻿Build started 09-02-2016 16:22:51.
+﻿Build started 09-02-2016 18:07:44.
+     1>Project "E:\Syracuse(Spring2016)\OOD\Project1\Pr1StarterCode\SemiExp\SemiExp.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /D _DEBUG /D _CONSOLE /D TEST_SEMIEXP /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\SemiExp.pdb" /Gd /TP /errorReport:prompt ..\Tokenizer\Tokenizer.cpp SemiExp.cpp
+         SemiExp.cpp
+         Tokenizer.cpp
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\Lib.exe /OUT:"E:\Syracuse(Spring2016)\OOD\Project1\Pr1StarterCode\x64\Debug\SemiExp.lib" /NOLOGO /MACHINE:X64 x64\Debug\Tokenizer.obj
+         x64\Debug\SemiExp.obj
+         SemiExp.vcxproj -> E:\Syracuse(Spring2016)\OOD\Project1\Pr1StarterCode\x64\Debug\SemiExp.lib
+     1>Done Building Project "E:\Syracuse(Spring2016)\OOD\Project1\Pr1StarterCode\SemiExp\SemiExp.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.01
+Time Elapsed 00:00:01.45

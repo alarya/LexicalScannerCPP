@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SemiExp", "SemiExp\SemiExp.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tokenizer", "Tokenizer\Tokenizer.vcxproj", "{FD63AD3D-4A25-4F5C-BD43-1E19192357F2}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Executive", "Executive\Executive.vcxproj", "{989270B8-90EE-4A49-A0F5-1842424D4486}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -29,6 +31,14 @@ Global
 		{FD63AD3D-4A25-4F5C-BD43-1E19192357F2}.Release|x64.ActiveCfg = Release|Win32
 		{FD63AD3D-4A25-4F5C-BD43-1E19192357F2}.Release|x86.ActiveCfg = Release|Win32
 		{FD63AD3D-4A25-4F5C-BD43-1E19192357F2}.Release|x86.Build.0 = Release|Win32
+		{989270B8-90EE-4A49-A0F5-1842424D4486}.Debug|x64.ActiveCfg = Debug|x64
+		{989270B8-90EE-4A49-A0F5-1842424D4486}.Debug|x64.Build.0 = Debug|x64
+		{989270B8-90EE-4A49-A0F5-1842424D4486}.Debug|x86.ActiveCfg = Debug|Win32
+		{989270B8-90EE-4A49-A0F5-1842424D4486}.Debug|x86.Build.0 = Debug|Win32
+		{989270B8-90EE-4A49-A0F5-1842424D4486}.Release|x64.ActiveCfg = Release|x64
+		{989270B8-90EE-4A49-A0F5-1842424D4486}.Release|x64.Build.0 = Release|x64
+		{989270B8-90EE-4A49-A0F5-1842424D4486}.Release|x86.ActiveCfg = Release|Win32
+		{989270B8-90EE-4A49-A0F5-1842424D4486}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

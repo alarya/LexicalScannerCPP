@@ -15,10 +15,11 @@ Class SemiExp
 
 //--------------Test cases for C and CPP comments ----------------//
 
+int i;
 //This is a CPP comment-----//
-
+i += 10 ;
 /*This is a C Comment ------*/
-
+i++ ;
 
 //---------Test cases for quoted strings and chars ----------------//
 

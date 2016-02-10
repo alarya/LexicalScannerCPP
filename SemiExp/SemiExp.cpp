@@ -20,8 +20,6 @@ using namespace Scanner;
 
 //-------------------class SemiExp Implementation -------------------------
 
-//using Token = std::string;
-
 //----Constructor -----------------
 SemiExp::SemiExp(Toker* pToker) : _pToker(pToker) {}
 
@@ -58,10 +56,7 @@ bool SemiExp::get(bool clear)
 	  if (token == "")
 		return false;
 
-	  //if (token != "\n" || )
-	  //{
-		   _tokens.push_back(token);
-	  //}
+	  _tokens.push_back(token);
  
   } while (!isTerminatingTok(token));
 

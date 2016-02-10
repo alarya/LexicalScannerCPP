@@ -6,9 +6,8 @@
 //  Language:			Visual C++ 2008, SP1                         //
 //  Platform:			Dell Precision T7400, Vista Ultimate SP1     //
 //  Application:		Prototype for CSE687 Pr1, Sp09			     //
-//  Author:				Alok Arya (alarya@syr.edu)                   //
-//  Original Author:    Jim Fawcett, CST 4-187, Syracuse University  //
-//                 (315) 443-3948, jfawcett@twcny.rr.com             //
+//  Author:             Jim Fawcett, CST 4-187, Syracuse University  //
+//                      (315) 443-3948, jfawcett@twcny.rr.com        //
 ///////////////////////////////////////////////////////////////////////
 /*
 Module Purpose:
@@ -18,6 +17,23 @@ types of scanners for parsing.  In this solution, we illustrate that
 by binding two different types of collections, SemiExp and XmlParts,
 to this interface.  This is illustrated in the test stubs for the
 SemiExpression and XmlElementParts modules.
+
+public Interface
+* ----------------
+* SemiExp s(pToker);		   //Creates a new instance of SemiExp
+* s.get();                     //Gets the next available semi-expression
+* s[n];                        //returns the nth token in semi-expression if available
+* s.length();				   //returns the number of tokens in the current sem-exp
+* s.find("token");             //return the index of the "token" in semi-exp
+* s.push_back("token");        //push token into the end of current semi-exp
+* s.remove("token");		   //remove "token" from the current semi-exp
+* s.remove(i);				   //remove a token from i'th index of current semi-exp
+* s.merge("token1", "token2"); //currently not used
+* s.toLower();                 //turns all the alphabets in the semi-exp to lower case
+* s.trimFront();               //remove any new line token from the front of the semi-exp
+* s.clear();				   //clear all tokens from the current semi-exp
+* s.show();                    //show the current semi-exp
+
 
 Maintenance History:
 ====================

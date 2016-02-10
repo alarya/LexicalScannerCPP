@@ -20,6 +20,13 @@
  * This is a new version, based on the State Design Pattern.  Older versions
  * exist, based on an informal state machine design.
  *
+ * Public Interface:
+ * -----------------
+ * Toker t;					//Creates a new Instance of Toker Class
+ * t.attach()               //passes the reference of an input stream to Toker
+ * t.getTok()               //returns the next valid available token from the i/p stream
+ * t.canRead()				//returns if the i/p stream can be read from
+ *
  * Build Process:
  * --------------
  * Required Files: Tokenizer.h, Tokenizer.cpp
